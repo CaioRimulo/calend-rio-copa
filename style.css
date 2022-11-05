@@ -1,0 +1,147 @@
+*{
+  padding: 0;
+  margin: 0;
+  /* nao deixa a caixa aumentar com o padding , a partir da borda-> */
+  box-sizing: border-box; 
+}
+/* criando variavel no css */
+:root { 
+ --card-color-primary: #F7DD43;
+  --card-title-border-color:  #746615;
+  --card-bg-color:  #1E1E1E;
+   --bg: url(./bg.yelow.svg);
+}
+body.blue {
+  --card-color-primary: #338AF3;
+  --card-title-border-color:  #338AF3;
+  --card-bg-color:  #1d1c19;
+     --bg: url(./bg.svg);
+}
+body.green {
+  --card-color-primary: #047C3F;
+  --card-title-border-color:  #047C3F;
+  --card-bg-color:  #1A1F1D ;
+  --bg: url(./bg.green.svg);
+}
+
+body *{
+  font-family: 'Roboto', sans-serif;
+}
+body{
+  background-color: #1E1E1E;  
+  background-image: var(--bg);
+  background-position-y: -720px; ;
+  background-position-x: center;
+  background: cover;
+  /* cover cobre todo o fundo */
+}
+ul{
+    list-style: none;
+    /* border: solid red 1px; */
+  
+}
+#app {
+    /* border: solid 1px red; */
+    width: fit-content;
+    margin: 52px auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 63px;
+
+
+}
+#cards {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.card {
+  padding: 32px 23px;
+  /* border: solid 1px red; */
+  text-align: center;
+
+  background: var(--card-bg-color);
+  border-bottom: 2px solid var(--card-color-primary);
+  /* borda de baixo */
+  border-radius: 6px; 
+}
+.card h2{
+  /* display flex=JUNTAOS TEXTOS, APERTA */
+    display:flex;
+    /* gap=espaco entre o elelmentos */
+    gap: 16px;
+    /* alinha os elementos no centro da linha */
+    align-items: center;
+    /* alinha o conteudo */
+    justify-content: space-between;
+    width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 53px;
+    padding: 8px 16px;
+    border: 1px solid var(--card-title-border-color);
+    border-radius: 6px;
+    color: #F7DD43;
+
+}
+.card h2 span {
+    color: #E1E1E6;
+    /* texto em caixa alta caps lock */
+    text-transform: uppercase;
+}
+
+.card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+}
+.card ul li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card ul li + li {
+  padding-top: 24px;
+  border-top: solid 1px #323238 ;
+}
+.card ul li strong {
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 125%;
+  color: #E1E1E6;
+}
+
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+.card h2,
+.card ul li strong,
+.card ul li img {
+  transition: transform 0.3s;
+}
+
+
+.card {
+  opacity: 0;
+  animation: minhaanimacao 0.7s forwards;
+}
+@keyframes minhaanimacao {
+    0%{ opacity: 0;
+    transform: translateY(-50px);}
+    100%{opacity: 1;
+     transform: translateY(0px)}
+}
+@media (min-width: 700px) {
+   #cards {
+    max-width: 670px;
+    flex-direction: row ;
+    flex-wrap: wrap ;
+  }
+}
